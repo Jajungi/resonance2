@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>공명 스테이션</title>
+  <link rel="icon" href="/logo-mark.png" />
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" />
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body class="mode-idle theme-light">
+  <div id="app" class="app">
+    <canvas id="wave" class="wave-canvas" aria-hidden="true"></canvas>
+    <canvas id="silhouette" class="silhouette-canvas" aria-hidden="true"></canvas>
+    <div class="veil" aria-hidden="true"></div>
+
+    <div class="brand-mark" aria-hidden="true">
+      <img src="/logo-mark.png" alt="" />
+    </div>
+
+    <button type="button" class="sound-btn" id="ttsToggle">소리</button>
+
+    <div id="kioskBar" class="kiosk-bar dev-only" hidden>
+      <span>키오스크</span>
+      <button type="button" class="chip" id="fsBtn">전체화면</button>
+    </div>
+
+    <div class="theme-bar dev-only" role="group" aria-label="배경">
+      <button type="button" class="theme-btn" id="themeLight" data-theme="light">흰 배경</button>
+      <button type="button" class="theme-btn" id="themeDark" data-theme="dark">검정 배경</button>
+      <button type="button" class="theme-btn" id="openCamWin">인식 창</button>
+    </div>
+
+    <!-- 대기 -->
+    <div id="startGate" class="panel panel-idle">
+      <p class="brand">공명 스테이션</p>
+      <h1 class="hero">듣고 있습니다</h1>
+      <p class="invite">천천히 말씀해 주세요</p>
+      <div class="cta-sticky">
+        <button type="button" class="btn primary xl" id="startGuest">말씀할게요</button>
+        <div class="cta-links">
+          <button type="button" class="linkish" id="startDemo">예시 들어보기</button>
+          <button type="button" class="linkish" id="startMember">이어서 듣기</button>
+        </div>
+      </div>
+      <p class="legal-soft">여기서 나눈 말은 남기지 않습니다 · 공명을 점수화하거나 판정하지 않습니다</p>
+      <p class="cam-note" id="camNote" hidden>카메라가 꺼져 있어도 말씀은 할 수 있습니다</p>
+    </div>
+
+    <!-- 전통(선택) -->
+    <div id="tradGate" class="panel panel-trad" hidden>
+      <p class="brand">공명 스테이션</p>
+      <h1 class="hero sm">어떤 말로 들을까요</h1>
+      <p class="soft-line">고르지 않으면 그냥 듣습니다</p>
+      <div class="trad-grid" id="traditionBar"></div>
+      <div class="cta-sticky">
+        <button type="button" class="btn primary xl" id="tradNext">이어서</button>
+        <button type="button" class="linkish" id="tradSkip">그냥 들을게요</button>
+      </div>
+    </div>
+
+    <!-- 세션 -->
+    <div id="sessionUI" class="panel panel-session" hidden>
+      <p class="kiosk-status" id="status">천천히 말씀해 주세요</p>
+      <div id="liveThread" class="live-thread" aria-live="polite"></div>
+      <p class="kiosk-caption empty" id="caption"></p>
+      <form id="sayForm" class="say-form">
+        <input class="field" id="sayInput" placeholder="들린 말을 고치거나, 이어서 적어도 됩니다" autocomplete="off" />
+        <button type="submit" class="btn primary">보내기</button>
+      </form>
+      <div class="kiosk-actions">
+        <button type="button" class="btn primary xl" id="mic">말씀하기</button>
+        <button type="button" class="btn warm xl" id="doneTurn" hidden>이만큼이에요</button>
+        <button type="button" class="btn ghost" id="demoSpeak" hidden>예시 다시</button>
+        <button type="button" class="btn ghost" id="end">일어설게요</button>
+      </div>
+      <div id="demoPicks" class="demo-picks" hidden></div>
+      <p class="kiosk-hint" id="hint"></p>
+      <label class="mic-pick dev-only">
+        <span>마이크</span>
+        <select id="micDevice"></select>
+      </label>
+      <pre id="micLog" class="mic-log dev-only" aria-live="polite"></pre>
+    </div>
+
+    <button type="button" id="pastFab" class="record-fab" aria-label="글로 보기" hidden>
+      <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
+        <path fill="currentColor" d="M4 4h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H8l-4 3.5V6a2 2 0 0 1 2-2zm2 4v2h12V8H6zm0 4v2h8v-2H6z"/>
+      </svg>
+    </button>
+
+    <section id="chatSheet" class="chat-overlay" aria-hidden="true" hidden>
+      <header class="chat-overlay-head">
+        <button type="button" class="chip" id="tabPast">지난 날</button>
+        <button type="button" id="pastClose" class="icon-btn" aria-label="닫기">✕</button>
+      </header>
+      <div id="pastList" class="past-list" hidden></div>
+      <div id="chatThread" class="chat-thread"></div>
+      <div class="chat-composer">
+        <input class="field" id="chatInput" placeholder="여기에 적어도 됩니다" autocomplete="off" />
+        <button type="button" class="btn primary" id="chatSend">보내기</button>
+      </div>
+    </section>
+
+    <main id="stage" class="stage overlay-stage" aria-live="polite"></main>
+  </div>
+  <script type="module" src="/main.js"></script>
+</body>
+</html>

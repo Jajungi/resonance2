@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" fill="none">
+  <defs>
+    <linearGradient id="ring" x1="12" y1="8" x2="84" y2="90" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#7EB6FF"/>
+      <stop offset="0.45" stop-color="#4D8FF0"/>
+      <stop offset="1" stop-color="#D4A85C"/>
+    </linearGradient>
+    <linearGradient id="core" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" x1="40" y1="38" x2="56" y2="58">
+      <stop stop-color="#FFE3A8"/>
+      <stop offset="1" stop-color="#C8963E"/>
+    </linearGradient>
+    <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="1" stdDeviation="1.2" flood-color="#3D7BE0" flood-opacity="0.25"/>
+    </filter>
+  </defs>
+  <circle cx="48" cy="48" r="45" fill="url(#ring)" filter="url(#soft)"/>
+  <circle cx="48" cy="48" r="37.5" fill="#ffffff"/>
+  <!-- soft orbit -->
+  <circle cx="48" cy="48" r="22" stroke="#4D8FF0" stroke-opacity="0.22" stroke-width="1.2"/>
+  <circle cx="48" cy="48" r="15.5" stroke="#D4A85C" stroke-opacity="0.28" stroke-width="1.1"/>
+  <!-- axis + dots -->
+  <path d="M48 20v11.5M48 64.5V76" stroke="#3D7BE0" stroke-width="2.1" stroke-linecap="round"/>
+  <circle cx="48" cy="15.5" r="2.1" fill="#3D7BE0"/>
+  <circle cx="48" cy="10.2" r="1.45" fill="#7EB6FF"/>
+  <circle cx="48" cy="80.5" r="2.1" fill="#3D7BE0"/>
+  <!-- waves -->
+  <path d="M56 44.8c5.5-7.2 13-9.2 21-3.6" stroke="#3D7BE0" stroke-width="2.15" stroke-linecap="round"/>
+  <path d="M56 51.2c6.2 6.5 13.8 7.4 21 1.8" stroke="#D4A85C" stroke-width="2.15" stroke-linecap="round"/>
+  <path d="M40 44.8c-5.5-7.2-13-9.2-21-3.6" stroke="#3D7BE0" stroke-width="2.15" stroke-linecap="round"/>
+  <path d="M40 51.2c-6.2 6.5-13.8 7.4-21 1.8" stroke="#D4A85C" stroke-width="2.15" stroke-linecap="round"/>
+  <!-- core -->
+  <circle cx="48" cy="48" r="7.2" fill="url(#core)"/>
+  <circle cx="45.8" cy="45.6" r="2.1" fill="#fff" fill-opacity="0.55"/>
+</svg>

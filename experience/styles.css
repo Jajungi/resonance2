@@ -1,0 +1,331 @@
+/* 공명 스테이션 — 사이트와 동일 기관 토큰 (다크/글로우/키오스크 룩 금지) */
+:root {
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --muted: #888;
+  --line: #e6e6e6;
+  --bg: #ffffff;
+  --cream: #f5f5f5;
+  --blue: #3d7be0;
+  --blue-deep: #2f63b8;
+  --font: "Noto Sans KR", sans-serif;
+  --font-serif: "Noto Serif KR", serif;
+  --radius: 0;
+  --radius-sm: 4px;
+  --max: 28rem;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { height: 100%; }
+body {
+  margin: 0;
+  min-height: 100%;
+  color: var(--ink);
+  font-family: var(--font);
+  font-size: 1rem;
+  line-height: 1.7;
+  background: var(--bg);
+}
+a { color: var(--blue-deep); text-underline-offset: 0.15em; }
+a:hover { color: var(--blue); }
+
+.station {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.station-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.85rem 1.25rem;
+  border-bottom: 1px solid var(--line);
+  background: #fff;
+}
+.station-bar .brand {
+  font-size: 0.88rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  text-decoration: none;
+  color: var(--ink);
+}
+.station-bar .exit {
+  font-size: 0.82rem;
+  color: var(--muted);
+  text-decoration: none;
+  border: 0;
+  background: transparent;
+  font: inherit;
+  cursor: pointer;
+  padding: 0.35rem 0.5rem;
+  border-radius: var(--radius-sm);
+}
+.station-bar .exit:hover {
+  color: var(--ink);
+  background: var(--cream);
+}
+
+.station-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: var(--max);
+  width: 100%;
+  margin: 0 auto;
+  padding: 2.5rem 1.25rem 3rem;
+}
+
+.stage[hidden],
+.actions[hidden],
+[hidden] { display: none !important; }
+
+.eyebrow {
+  margin: 0 0 0.75rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  color: var(--muted);
+}
+.station-main h1 {
+  margin: 0 0 1.25rem;
+  font-family: var(--font);
+  font-size: clamp(1.35rem, 3.5vw, 1.75rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.35;
+}
+.lead {
+  margin: 0 0 1.5rem;
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
+  line-height: 1.9;
+  color: var(--ink-soft);
+}
+.lead strong { color: var(--ink); font-weight: 600; }
+
+/* 듣는 사람 — 단순 실루엣, 장식·글로우 없음 */
+.listener {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 0 1.75rem;
+  text-align: center;
+}
+.listener-figure {
+  width: 5.5rem;
+  height: 6.25rem;
+  color: #b0b0b0;
+}
+.listener-figure svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.listener-status {
+  margin: 0.85rem 0 0;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--muted);
+  letter-spacing: -0.02em;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1.75rem;
+}
+
+.btn {
+  appearance: none;
+  font: inherit;
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 0.65rem 1.1rem;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  border: 1px solid transparent;
+}
+.btn-ghost {
+  background: transparent;
+  border-color: transparent;
+  color: var(--ink-soft);
+}
+.btn-ghost:hover {
+  background: var(--cream);
+  color: var(--ink);
+}
+.btn-outline {
+  background: transparent;
+  border-color: var(--line);
+  color: var(--ink);
+}
+.btn-outline:hover {
+  border-color: #ccc;
+}
+.btn-solid {
+  background: var(--blue);
+  border-color: var(--blue);
+  color: #fff;
+}
+.btn-solid:hover {
+  background: var(--blue-deep);
+  border-color: var(--blue-deep);
+  color: #fff;
+}
+
+.prior-line {
+  margin: 0 0 1rem;
+  padding: 1rem 1.1rem;
+  border: 1px solid var(--line);
+  background: #fafafa;
+  font-family: var(--font-serif);
+  font-size: 1.02rem;
+  line-height: 1.85;
+  color: var(--ink);
+}
+.prior-empty {
+  margin: 0 0 1rem;
+  font-size: 0.9rem;
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+.speak-box {
+  width: 100%;
+  margin: 0;
+  padding: 0.85rem 1rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  font: inherit;
+  font-family: var(--font-serif);
+  font-size: 1.02rem;
+  line-height: 1.75;
+  color: var(--ink);
+  background: #fff;
+  resize: vertical;
+  min-height: 7rem;
+}
+.speak-box:focus {
+  outline: 1px solid var(--blue);
+  border-color: var(--blue);
+}
+.consent {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.55rem;
+  margin: 1rem 0 0;
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+  line-height: 1.55;
+}
+.consent input {
+  margin-top: 0.2rem;
+  flex-shrink: 0;
+}
+
+.jeong-text {
+  margin: 0;
+  font-family: var(--font-serif);
+  font-size: 1.08rem;
+  line-height: 2;
+  color: var(--ink);
+}
+.offer {
+  margin-top: 2rem;
+  padding: 1.35rem 1.15rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  background: #fafafa;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font: inherit;
+}
+.offer:hover { border-color: #ccc; }
+.offer.is-done {
+  cursor: default;
+  opacity: 0.85;
+}
+.offer-mark {
+  width: 3.2rem;
+  height: 3.2rem;
+  margin: 0 auto 0.85rem;
+}
+.offer-mark img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+.offer-label {
+  margin: 0;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--ink-soft);
+}
+.offer.is-done .offer-label { color: var(--muted); }
+
+.leave-note {
+  margin: 0 0 1.5rem;
+  font-family: var(--font-serif);
+  font-size: 1.02rem;
+  line-height: 1.85;
+  color: var(--ink-soft);
+}
+
+.foot-link {
+  margin-top: 2.5rem;
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+.foot-link a { color: var(--muted); text-decoration: none; }
+.foot-link a:hover { color: var(--ink-soft); }
+
+/* 합명례 따라보기 */
+.follow .station-main { max-width: 32rem; }
+.follow .stage-label {
+  margin: 0 0 0.5rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  color: var(--muted);
+  font-weight: 600;
+}
+.follow .guide-line {
+  font-family: var(--font-serif);
+  font-size: clamp(1.05rem, 2.5vw, 1.25rem);
+  line-height: 1.85;
+  color: var(--ink-soft);
+  margin: 0 0 1rem;
+}
+.follow .chorus {
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
+  color: var(--ink);
+  margin: 0.5rem 0 0;
+  padding-left: 0.85rem;
+  border-left: 2px solid var(--line);
+}
+.progress {
+  display: flex;
+  gap: 0.35rem;
+  margin-bottom: 1.75rem;
+}
+.progress i {
+  flex: 1;
+  height: 2px;
+  background: var(--line);
+}
+.progress i.is-on { background: var(--blue); }
+
+@media (max-width: 420px) {
+  .station-main { padding: 1.75rem 1rem 2.5rem; }
+  .actions { margin-top: 1.25rem; }
+}

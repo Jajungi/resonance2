@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>원음 — 공명 스테이션</title>
+  <link rel="icon" href="data:image/png;base64,%%LOGO%%" />
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" />
+  <style>
+%%CSS%%
+html, body { font-family: "Pretendard Variable", "Pretendard", "Malgun Gothic", "Noto Sans KR", sans-serif; }
+  </style>
+</head>
+<body class="mode-idle theme-light">
+  <div id="app" class="app">
+    <canvas id="wave" class="wave-canvas" aria-hidden="true"></canvas>
+    <div class="veil" aria-hidden="true"></div>
+
+    <div class="brand-mark" aria-hidden="true">
+      <img src="data:image/png;base64,%%LOGO%%" alt="" />
+    </div>
+
+    <button type="button" class="sound-btn on" id="ttsToggle">소리</button>
+
+    <div id="startGate" class="panel panel-idle">
+      <p class="brand">공명 스테이션</p>
+      <h1 class="hero">듣고 있습니다</h1>
+      <p class="invite">천천히 말씀해 주세요</p>
+      <div class="cta-sticky">
+        <button type="button" class="btn primary xl" id="startGuest">말씀할게요</button>
+        <div class="cta-links">
+          <button type="button" class="linkish" id="startDemo">예시 들어보기</button>
+          <button type="button" class="linkish" id="startMember">이어서 듣기</button>
+        </div>
+      </div>
+      <p class="legal-soft">여기서 나눈 말은 남기지 않습니다</p>
+    </div>
+
+    <div id="sessionUI" class="panel panel-session" hidden>
+      <p class="kiosk-status" id="status">천천히 말씀해 주세요</p>
+      <div id="liveThread" class="live-thread" aria-live="polite"></div>
+      <p class="kiosk-caption empty" id="caption"></p>
+      <form id="sayForm" class="say-form">
+        <input class="field" id="sayInput" placeholder="들린 말을 고치거나, 이어서 적어도 됩니다" autocomplete="off" />
+        <button type="submit" class="btn primary">보내기</button>
+      </form>
+      <div class="kiosk-actions">
+        <button type="button" class="btn primary xl" id="mic">말씀하기</button>
+        <button type="button" class="btn ghost" id="demoSpeak" hidden>예시 다시</button>
+        <button type="button" class="btn ghost" id="end">일어설게요</button>
+      </div>
+      <p class="kiosk-hint" id="hint"></p>
+    </div>
+
+    <button type="button" id="pastFab" class="record-fab" aria-label="글로 보기" hidden>
+      <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
+        <path fill="currentColor" d="M4 4h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H8l-4 3.5V6a2 2 0 0 1 2-2zm2 4v2h12V8H6zm0 4v2h8v-2H6z"/>
+      </svg>
+    </button>
+
+    <section id="chatSheet" class="chat-overlay" aria-hidden="true" hidden>
+      <header class="chat-overlay-head">
+        <button type="button" class="chip" id="tabPast">지난 날</button>
+        <button type="button" id="pastClose" class="icon-btn" aria-label="닫기">✕</button>
+      </header>
+      <div id="pastList" class="past-list" hidden></div>
+      <div id="chatThread" class="chat-thread"></div>
+      <div class="chat-composer">
+        <input class="field" id="chatInput" placeholder="여기에 적어도 됩니다" autocomplete="off" />
+        <button type="button" class="btn primary" id="chatSend">보내기</button>
+      </div>
+    </section>
+
+    <main id="stage" class="stage overlay-stage" aria-live="polite"></main>
+  </div>
+  <script>
+%%BOOT%%
+  </script>
+</body>
+</html>

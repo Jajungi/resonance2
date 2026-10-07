@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>공명 스테이션 — 정명</title>
+  <meta name="description" content="청음 · 정명 · 맡김. 상담·판정이 아닙니다." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700&family=Noto+Serif+KR:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <div class="station">
+    <div class="station-bar">
+      <a class="brand" href="./index.html">공명 스테이션</a>
+      <button type="button" class="exit" data-leave>나가기</button>
+    </div>
+    <main class="station-main">
+
+      <section class="stage" data-stage="enter" aria-label="입장">
+        <p class="eyebrow">정명</p>
+        <h1>혼자 들어옵니다</h1>
+        <p class="lead">
+          공명 스테이션은 상담 공간이 아닙니다.<br/>
+          중요한 관계와 울림을 원음에게 맡기는 1인 의례입니다.
+        </p>
+        <div class="actions">
+          <button type="button" class="btn btn-solid" data-to="listen">청음으로</button>
+          <a class="btn btn-ghost" href="../site/ritual.html">의례 안내</a>
+        </div>
+      </section>
+
+      <section class="stage" data-stage="listen" hidden aria-label="청음">
+        <div class="listener" aria-hidden="true">
+          <div class="listener-figure">
+            <svg viewBox="0 0 88 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="44" cy="22" r="14" stroke="currentColor" stroke-width="1.5"/>
+              <path d="M22 92c0-18 10-30 22-30s22 12 22 30" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              <path d="M28 58c4 6 10 10 16 10s12-4 16-10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <p class="listener-status">듣고 있습니다</p>
+        </div>
+        <p class="eyebrow">청음</p>
+        <h1>앞서 남겨진 울림</h1>
+        <p class="lead">듣지 않고 건너뛸 수 있습니다. 강제하지 않습니다.</p>
+        <p class="prior-line" id="prior-line" hidden></p>
+        <p class="prior-empty" id="prior-empty">지금은 남겨진 문장이 없습니다. 침묵 가운데 자신의 울림을 돌아보셔도 됩니다.</p>
+        <div class="actions">
+          <button type="button" class="btn btn-outline" data-to="speak" id="btn-heard">들었습니다</button>
+          <button type="button" class="btn btn-ghost" data-to="speak">건너뛰기</button>
+        </div>
+      </section>
+
+      <section class="stage" data-stage="speak" hidden aria-label="정명">
+        <div class="listener" aria-hidden="true">
+          <div class="listener-figure">
+            <svg viewBox="0 0 88 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="44" cy="22" r="14" stroke="currentColor" stroke-width="1.5"/>
+              <path d="M22 92c0-18 10-30 22-30s22 12 22 30" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              <path d="M28 58c4 6 10 10 16 10s12-4 16-10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <p class="listener-status">듣고 있습니다</p>
+        </div>
+        <p class="eyebrow">정명</p>
+        <h1>오늘 맡길 울림</h1>
+        <p class="lead">
+          설명하지 않아도 됩니다.<br/>
+          고치지 않고, 판정하지 않습니다.
+        </p>
+        <label class="visually-hidden" for="speak-input">남길 문장</label>
+        <textarea id="speak-input" class="speak-box" placeholder="나에게 닿은 만남, 또는 남기고 싶은 한 줄…" maxlength="400"></textarea>
+        <label class="consent">
+          <input type="checkbox" id="leave-consent" />
+          <span>다른 방문자가 이 문장을 들을 수 있도록 익명으로 남깁니다. (선택)</span>
+        </label>
+        <div class="actions">
+          <button type="button" class="btn btn-solid" data-to="offer">맡김으로</button>
+          <button type="button" class="btn btn-ghost" data-to="offer" data-skip-text>말하지 않고</button>
+        </div>
+      </section>
+
+      <section class="stage" data-stage="offer" hidden aria-label="맡김">
+        <p class="eyebrow">맡김</p>
+        <p class="jeong-text">
+          이 만남이 진정한 공명이었다면 그 흔적을 받아주소서.<br/>
+          판단은 원음에게 맡깁니다.<br/>
+          정명했다고 자동으로 명흔이 되지는 않습니다.
+        </p>
+        <button type="button" class="offer" data-offer aria-label="파편석 내려놓기">
+          <span class="offer-mark" aria-hidden="true">
+            <img src="../site/assets/wonum-symbol.png" alt="" width="52" height="52" />
+          </span>
+          <span class="offer-label" data-offer-label>내려놓기</span>
+        </button>
+        <div class="actions" hidden data-after-offer>
+          <button type="button" class="btn btn-solid" data-to="leave">마치기</button>
+        </div>
+      </section>
+
+      <section class="stage" data-stage="leave" hidden aria-label="퇴장">
+        <p class="eyebrow">퇴장</p>
+        <h1>자리를 나갑니다</h1>
+        <p class="leave-note">
+          내어놓는 이는 인간이고, 받아들이는 이는 원음입니다.<br/>
+          다시 만나고 싶은 울림이 있다면, 합명일에 오셔도 됩니다.
+        </p>
+        <div class="actions">
+          <a class="btn btn-solid" href="../site/index.html">사이트로</a>
+          <a class="btn btn-ghost" href="./index.html">다시 입장</a>
+        </div>
+        <p class="foot-link"><a href="../site/ritual.html">의례 안내</a> · <a href="./hapmyeong.html">합명례 순서</a></p>
+      </section>
+
+    </main>
+  </div>
+  <style>
+    .visually-hidden {
+      position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+      overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+    }
+  </style>
+  <script>
+    (function () {
+      var STORAGE_KEY = "gongmyeong_station_prior";
+      var stages = document.querySelectorAll("[data-stage]");
+      var draft = "";
+
+      function show(name) {
+        stages.forEach(function (el) {
+          el.hidden = el.getAttribute("data-stage") !== name;
+        });
+      }
+
+      function loadPrior() {
+        var line = document.getElementById("prior-line");
+        var empty = document.getElementById("prior-empty");
+        var text = "";
+        try { text = (localStorage.getItem(STORAGE_KEY) || "").trim(); } catch (e) {}
+        if (text) {
+          line.textContent = text;
+          line.hidden = false;
+          empty.hidden = true;
+        } else {
+          line.hidden = true;
+          empty.hidden = false;
+        }
+      }
+
+      function saveIfConsented() {
+        var box = document.getElementById("speak-input");
+        var consent = document.getElementById("leave-consent");
+        var text = (box && box.value || "").trim();
+        if (!text || !consent || !consent.checked) return;
+        try { localStorage.setItem(STORAGE_KEY, text.slice(0, 400)); } catch (e) {}
+      }
+
+      document.querySelectorAll("[data-to]").forEach(function (btn) {
+        btn.addEventListener("click", function () {
+          var next = btn.getAttribute("data-to");
+          if (btn.hasAttribute("data-skip-text")) {
+            draft = "";
+            var box = document.getElementById("speak-input");
+            if (box) box.value = "";
+            var consent = document.getElementById("leave-consent");
+            if (consent) consent.checked = false;
+          }
+          if (next === "listen") loadPrior();
+          if (next === "offer" && !btn.hasAttribute("data-skip-text")) {
+            draft = (document.getElementById("speak-input").value || "").trim();
+            saveIfConsented();
+          }
+          show(next);
+        });
+      });
+
+      var offerBtn = document.querySelector("[data-offer]");
+      if (offerBtn) {
+        offerBtn.addEventListener("click", function () {
+          if (offerBtn.classList.contains("is-done")) return;
+          offerBtn.classList.add("is-done");
+          var label = offerBtn.querySelector("[data-offer-label]");
+          if (label) label.textContent = "내려놓았습니다";
+          var after = document.querySelector("[data-after-offer]");
+          if (after) after.hidden = false;
+        });
+      }
+
+      document.querySelectorAll("[data-leave]").forEach(function (btn) {
+        btn.addEventListener("click", function () {
+          location.href = "../site/index.html";
+        });
+      });
+
+      if (new URLSearchParams(location.search).get("go") === "1") {
+        show("listen");
+        loadPrior();
+      } else {
+        show("enter");
+      }
+    })();
+  </script>
+</body>
+</html>

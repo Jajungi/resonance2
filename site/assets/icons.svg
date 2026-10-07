@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none">
+  <!-- polished quick icons: ink + blue accent -->
+  <symbol id="i-about" viewBox="0 0 64 64" fill="none">
+    <circle cx="32" cy="20" r="9" stroke="#222" stroke-width="2"/>
+    <path d="M14 52c3-12 10-18 18-18s15 6 18 18" stroke="#222" stroke-width="2" stroke-linecap="round"/>
+    <path d="M28 24.5h8" stroke="#5BA3F5" stroke-width="2.2" stroke-linecap="round"/>
+  </symbol>
+  <symbol id="i-doctrine" viewBox="0 0 64 64" fill="none">
+    <path d="M18 50V22l14-8 14 8v28l-14 8-14-8z" stroke="#222" stroke-width="2" stroke-linejoin="round"/>
+    <path d="M32 14v44" stroke="#222" stroke-width="2"/>
+    <path d="M26 30h6M26 38h6" stroke="#5BA3F5" stroke-width="2" stroke-linecap="round"/>
+  </symbol>
+  <symbol id="i-salvation" viewBox="0 0 64 64" fill="none">
+    <path d="M32 10l8 14h16l-12 12 5 18-17-10-17 10 5-18L8 24h16l8-14z" stroke="#222" stroke-width="2" stroke-linejoin="round"/>
+    <path d="M32 26v16M24 34h16" stroke="#5BA3F5" stroke-width="2" stroke-linecap="round"/>
+  </symbol>
+  <symbol id="i-scripture" viewBox="0 0 64 64" fill="none">
+    <path d="M12 16h16a8 8 0 018 8v28H20a8 8 0 01-8-8V16z" stroke="#222" stroke-width="2"/>
+    <path d="M52 16H36a8 8 0 00-8 8v28h16a8 8 0 008-8V16z" stroke="#222" stroke-width="2"/>
+    <path d="M22 26h6M38 26h6" stroke="#5BA3F5" stroke-width="2" stroke-linecap="round"/>
+    <path d="M28 10l4-4 4 4" stroke="#5BA3F5" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  </symbol>
+  <symbol id="i-ritual" viewBox="0 0 64 64" fill="none">
+    <path d="M10 46l22-30 22 30H10z" stroke="#222" stroke-width="2" stroke-linejoin="round"/>
+    <path d="M24 46v10h16V46" stroke="#222" stroke-width="2"/>
+    <circle cx="32" cy="30" r="4" stroke="#5BA3F5" stroke-width="2"/>
+    <path d="M32 16v6" stroke="#5BA3F5" stroke-width="2" stroke-linecap="round"/>
+  </symbol>
+  <symbol id="i-library" viewBox="0 0 64 64" fill="none">
+    <rect x="14" y="12" width="36" height="44" rx="3" stroke="#222" stroke-width="2"/>
+    <path d="M22 22h20M22 32h20M22 42h12" stroke="#222" stroke-width="2" stroke-linecap="round"/>
+    <rect x="20" y="18" width="10" height="8" rx="1" fill="#5BA3F5"/>
+  </symbol>
+  <symbol id="i-news" viewBox="0 0 64 64" fill="none">
+    <rect x="16" y="10" width="32" height="44" rx="2" stroke="#222" stroke-width="2"/>
+    <path d="M24 22h16M24 30h16M24 38h10" stroke="#222" stroke-width="2" stroke-linecap="round"/>
+    <path d="M42 14l8 3v8l-3 1.5V20l-5-2V14z" fill="#5BA3F5"/>
+  </symbol>
+</svg>

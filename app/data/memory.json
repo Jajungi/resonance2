@@ -1,0 +1,81 @@
+{
+  "users": {
+    "e89d7ead64286468fe46ab9307e7e4198ecd475548c7cbdd39c58b6679a87f31": {
+      "id": "e89d7ead64286468",
+      "phoneHash": "e89d7ead64286468fe46ab9307e7e4198ecd475548c7cbdd39c58b6679a87f31",
+      "pinSalt": "8c9562726ec35702",
+      "pinHash": "d778e3a29ae02666780d2a063d2002a10ca489c6fd1a983b47092f5636edc69f",
+      "displayName": "??",
+      "preferredTradition": "common",
+      "a11yPrefs": {
+        "fontScale": 1,
+        "contrast": false,
+        "ttsRate": 0.85
+      },
+      "consent": {
+        "memory": true,
+        "resonancePool": false,
+        "crisisShare": true
+      },
+      "createdAt": "2026-09-03T09:13:48.061Z",
+      "lastSeenAt": "2026-09-03T09:13:48.061Z",
+      "token": "eb508a42764902db6758f1eb345485d26ef97b07ee9993c9"
+    },
+    "187ce82a6974c5373a94cb500e8553b91aac951c7346d5b6a3128c666ac6d1d3": {
+      "id": "187ce82a6974c537",
+      "phoneHash": "187ce82a6974c5373a94cb500e8553b91aac951c7346d5b6a3128c666ac6d1d3",
+      "pinSalt": "45c13c00c55eeb47",
+      "pinHash": "10d283c239458d3b655b6e7862d38669a86dbe8e88e770d4d4369933b2470130",
+      "displayName": "테스트",
+      "preferredTradition": "common",
+      "a11yPrefs": {
+        "fontScale": 1,
+        "contrast": false,
+        "ttsRate": 0.85
+      },
+      "consent": {
+        "memory": true,
+        "resonancePool": false,
+        "crisisShare": true
+      },
+      "createdAt": "2026-09-03T09:46:37.083Z",
+      "lastSeenAt": "2026-10-05T01:05:49.698Z",
+      "token": "16aadc35b018abc6a3b9f4a40065a7639f7070ae45948171"
+    }
+  },
+  "capsules": {
+    "e89d7ead64286468": {
+      "userId": "e89d7ead64286468",
+      "items": [
+        {
+          "id": "0e57f694-9d07-4acb-a89f-179886512fff",
+          "createdAt": "2026-09-03T09:13:48.070Z",
+          "sourceSessionId": null,
+          "type": "topic",
+          "label": "마음",
+          "summary": "??? ??? ??? ???? ??? ????",
+          "salience": 0.55,
+          "userPinned": false,
+          "muted": false
+        }
+      ]
+    },
+    "187ce82a6974c537": {
+      "userId": "187ce82a6974c537",
+      "items": [
+        {
+          "id": "24b657fa-64ae-463a-8925-59257743c917",
+          "createdAt": "2026-09-03T09:46:37.088Z",
+          "sourceSessionId": null,
+          "type": "topic",
+          "label": "가족",
+          "summary": "어머니 그리움이 큽니다",
+          "salience": 0.67,
+          "userPinned": false,
+          "muted": false,
+          "updatedAt": "2026-10-05T01:05:49.705Z"
+        }
+      ]
+    }
+  }
+}

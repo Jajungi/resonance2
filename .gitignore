@@ -1,0 +1,27 @@
+# dependencies / build
+node_modules/
+**/node_modules/
+dist/
+**/dist/
+client/dist/
+
+# secrets & local
+.env
+**/.env
+*.log
+logs/
+.DS_Store
+Thumbs.db
+
+# editor / tooling
+.cursor/
+.vscode/
+.idea/
+*.local
+
+# drafts
+**/_draft_*.html
+_site/
+
+# nested clone (contents may be vendored separately)
+_resonance_src/

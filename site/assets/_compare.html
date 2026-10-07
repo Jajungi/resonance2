@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8"/>
+<title>wave compare v5</title>
+<style>
+  body { margin: 0; background: #222; color: #ddd; font: 13px sans-serif; }
+  .row { display: flex; gap: 16px; justify-content: center; padding: 16px; flex-wrap: wrap; }
+  .wrap { position: relative; width: 660px; height: 450px; background: #f7f6f3; }
+  .wrap img { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0.45; }
+  .wrap svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+  path { fill: none; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.7; }
+  .a { stroke: #e22; } .b { stroke: #28c; }
+  h1 { text-align: center; font-weight: 500; font-size: 14px; }
+</style>
+</head>
+<body>
+<h1>빨강=A(짧은 끝) / 파랑=B(긴 끝) — 끝 안 만남 · 1회 교차</h1>
+<div class="row">
+<div class="wrap">
+  <img src="./wonum-symbol.png" alt=""/>
+  <svg viewBox="0 0 660 450">
+    <path class="a" d="M352 218 C353.7 212.5, 358.7 192.2, 362 185 C365.3 177.8, 367.3 173.8, 372 175 C376.7 176.2, 383.7 184.2, 390 192 C396.3 199.8, 403.3 213.2, 410 222 C416.7 230.8, 422.5 239.8, 430 245 C437.5 250.2, 447.5 249.2, 455 253 C462.5 256.8, 468.3 264.0, 475 268 C481.7 272.0, 488.3 274.0, 495 277 C501.7 280.0, 508.3 283.8, 515 286 C521.7 288.2, 528.3 289.5, 535 290 C541.7 290.5, 549.2 290.0, 555 289 C560.8 288.0, 565.5 285.8, 570 284 C574.5 282.2, 580.0 279.0, 582 278"/>
+    <path class="b" d="M352 232 C354.2 235.8, 360.3 249.0, 365 255 C369.7 261.0, 374.2 265.5, 380 268 C385.8 270.5, 393.3 270.3, 400 270 C406.7 269.7, 413.3 268.0, 420 266 C426.7 264.0, 434.2 260.2, 440 258 C445.8 255.8, 449.2 255.5, 455 253 C460.8 250.5, 468.3 245.5, 475 243 C481.7 240.5, 488.3 238.7, 495 238 C501.7 237.3, 508.3 237.8, 515 239 C521.7 240.2, 528.3 242.3, 535 245 C541.7 247.7, 548.3 251.8, 555 255 C561.7 258.2, 568.3 261.7, 575 264 C581.7 266.3, 588.3 268.0, 595 269 C601.7 270.0, 608.8 270.0, 615 270 C621.2 270.0, 629.2 269.2, 632 269"/>
+  </svg>
+</div>
+</div>
+</body>
+</html>
