@@ -18,9 +18,9 @@
   --font: "Noto Sans KR", sans-serif;
   --font-display: "Noto Sans KR", sans-serif;
   --font-serif: "Noto Serif KR", serif;
-  /* 화면이 넓어질수록 헤더·홈 셸·푸터가 함께 넓어짐 */
-  --max: clamp(72rem, 92vw, 140rem);
-  --content: clamp(56rem, 88vw, 120rem);
+  /* vw 기준 — 뷰포트보다 커지지 않음. 남는 여백은 좌우 대칭(margin:auto) */
+  --max: min(92vw, 140rem);
+  --content: min(88vw, 120rem);
   --header-h: 3.25rem;
 }
 
@@ -269,15 +269,17 @@ button { font-family: inherit; }
   padding: 1.15rem 1.25rem 3.5rem;
 }
 
-/* Hero carousel — 이미지만 풀블리드 */
+/* Hero carousel — 풀블리드, 넓은 화면에서는 세로를 키움 */
 .hero-carousel {
   position: relative;
   border-radius: 0;
   overflow: hidden;
   background: #1a1a1a;
-  aspect-ratio: 16 / 7;
-  min-height: 280px;
-  max-height: min(72vh, clamp(560px, 42vw, 820px));
+  width: 100%;
+  /* 가로가 넓을수록 높이도 함께 증가 (납작한 띠 방지) */
+  height: clamp(20rem, 46vw, 78vh);
+  min-height: 20rem;
+  max-height: 78vh;
   box-shadow: none;
   border: 0;
   border-bottom: 1px solid var(--line);
@@ -308,25 +310,30 @@ button { font-family: inherit; }
 .hero-photo-shade {
   position: absolute;
   inset: 0;
+  /* 좌측만 가리지 않고, 중앙 카피 가독용으로 고르게 */
   background:
-    linear-gradient(100deg, rgba(251, 247, 239, 0.92) 0%, rgba(251, 247, 239, 0.72) 42%, rgba(251, 247, 239, 0.18) 72%, rgba(0,0,0,0.12) 100%);
+    linear-gradient(180deg, rgba(251, 247, 239, 0.55) 0%, rgba(251, 247, 239, 0.42) 45%, rgba(251, 247, 239, 0.58) 100%);
   pointer-events: none;
 }
 .hero-photo-shade.cool {
   background:
-    linear-gradient(105deg, rgba(32, 58, 98, 0.88) 0%, rgba(40, 78, 140, 0.55) 45%, rgba(20, 30, 50, 0.25) 100%);
+    linear-gradient(180deg, rgba(32, 58, 98, 0.62) 0%, rgba(40, 78, 140, 0.48) 50%, rgba(24, 40, 70, 0.64) 100%);
 }
 .hero-photo-shade.dark {
   background:
-    linear-gradient(105deg, rgba(18, 22, 28, 0.82) 0%, rgba(24, 32, 40, 0.55) 48%, rgba(10, 12, 16, 0.28) 100%);
+    linear-gradient(180deg, rgba(18, 22, 28, 0.58) 0%, rgba(24, 32, 40, 0.45) 50%, rgba(12, 14, 18, 0.62) 100%);
 }
 .hero-inner-copy {
   position: relative;
   z-index: 1;
   grid-template-columns: 1fr;
+  justify-items: center;
 }
 .hero-lead {
-  max-width: min(32rem, 100%);
+  max-width: min(36rem, 100%);
+  width: 100%;
+  margin-inline: auto;
+  text-align: center;
 }
 .hero-lead .eyebrow {
   margin: 0 0 0.45rem;
@@ -362,13 +369,16 @@ button { font-family: inherit; }
   z-index: 1;
   height: 100%;
   width: 100%;
-  max-width: var(--max);
+  max-width: var(--content);
   margin: 0 auto;
   display: grid;
   grid-template-columns: 1fr;
   align-items: center;
+  justify-items: center;
   gap: 1.5rem;
-  padding: 1.5rem clamp(1.25rem, 4vw, 3.5rem);
+  /* 좌우 동일 패딩 → 중앙 대칭 */
+  padding: 1.75rem clamp(1.25rem, 5vw, 4rem);
+  box-sizing: border-box;
 }
 .hero-illust {
   position: relative;
@@ -460,20 +470,26 @@ button { font-family: inherit; }
   bottom: 0;
   transform: translateX(-50%);
   width: 100%;
-  max-width: var(--max);
+  max-width: var(--content);
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: flex-start;
-  padding: 1.75rem clamp(1.25rem, 4vw, 3.5rem);
+  align-items: center;
+  text-align: center;
+  padding: 1.75rem clamp(1.25rem, 5vw, 4rem);
   color: #fff;
   z-index: 1;
   box-sizing: border-box;
 }
 .hero-banner-copy > * {
-  max-width: min(32rem, 100%);
+  max-width: min(36rem, 100%);
+  width: 100%;
+  margin-inline: auto;
   position: relative;
   z-index: 1;
+}
+.hero-banner-copy .hero-link {
+  margin-inline: auto;
 }
 .hero-banner-copy.dark { color: #fff; }
 .hero-banner-copy .eyebrow {
@@ -1329,13 +1345,13 @@ body.menu-open { overflow: hidden; }
   .card-grid { grid-template-columns: repeat(2, 1fr); }
   .channel-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .hero-carousel {
-    aspect-ratio: 16 / 9;
-    max-height: min(58vh, 440px);
+    height: clamp(18rem, 52vw, 58vh);
+    max-height: 58vh;
   }
   .hero-lead h2 { font-size: clamp(1.2rem, 3.2vw, 1.65rem); }
   .hero-banner-copy h2 { font-size: clamp(1.45rem, 4vw, 2.1rem); }
-  .hero-inner { padding: 1.25rem 2.75rem; }
-  .hero-banner-copy { padding: 1.5rem 2.75rem; }
+  .hero-inner,
+  .hero-banner-copy { padding-left: 1.5rem; padding-right: 1.5rem; }
   .brand-text span { display: none; }
   .home-shell { padding: 1.25rem 1.1rem 3rem; }
   .page-hero-bar { padding: 1.65rem 1.1rem 1.35rem; }
@@ -1344,11 +1360,15 @@ body.menu-open { overflow: hidden; }
   .path-card { flex: 0 0 9.2rem; }
   .card-grid { grid-template-columns: 1fr; }
   .channel-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .hero-inner { grid-template-columns: 1fr; padding: 1rem 2.6rem; }
+  .hero-carousel {
+    height: clamp(16rem, 58vw, 52vh);
+    max-height: 52vh;
+  }
+  .hero-inner { grid-template-columns: 1fr; padding: 1rem 1.25rem; }
   .hero-inner-copy { grid-template-columns: 1fr; }
   .hero-illust { opacity: 0.9; min-height: 120px; }
   .hero-wave { width: min(48%, 140px); }
-  .hero-banner-copy { padding: 1.25rem 2.6rem; }
+  .hero-banner-copy { padding: 1.25rem 1.25rem; }
   .hero-nav button { width: 2.4rem; height: 2.4rem; }
   .hero-nav svg { width: 1.35rem; height: 1.35rem; }
   .home-verse { margin-top: 1.75rem; }
@@ -1375,9 +1395,9 @@ body.menu-open { overflow: hidden; }
   .cta-banner-text { font-size: 0.92rem; }
   .cta-banner-text small { font-size: 0.74rem; }
   .hero-carousel {
-    aspect-ratio: 4 / 3;
-    max-height: min(52vh, 380px);
-    min-height: 220px;
+    height: clamp(15rem, 62vw, 48vh);
+    max-height: 48vh;
+    min-height: 15rem;
   }
   .stat-num { font-size: clamp(1.5rem, 6vw, 2rem); }
   .photo-grid { grid-template-columns: 1fr; }
